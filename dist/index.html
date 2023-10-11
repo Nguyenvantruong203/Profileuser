@@ -10,7 +10,7 @@
 </head>
 
 <body class="not-italic bg-[#f8f7fa]">
-    <div class="flex">
+    <div class="flex" id="app">
         <div class="w-[23%]">
             <ul class="w-[17%] text-[#5c596c] h-screen p-3 bg-[#ffffff] overflow-y-auto fixed text-base drop-shadow-xl">
                 <div class="flex items-center pt-2">
@@ -30,7 +30,7 @@
                 <!-- <div class="h-[30px]"></div> -->
 
                 <li class="w-full h-max pt-5">
-                    <a id="dashboard"
+                    <a @click="dashboard = ! dashboard"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-house p-1"></i>
@@ -41,7 +41,7 @@
                             <i class="fa-solid fa-chevron-right text-xs p-1 mx-2 "></i>
                         </div>
                     </a>
-                    <ul id="option-dashboard" class="hidden">
+                    <ul v-show="!dashboard">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -96,7 +96,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="layout"
+                    <a @click="layout = ! layout"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-table-columns p-1"></i>
@@ -104,7 +104,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-layout" class="hidden">
+                    <ul v-show="!layout">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -199,7 +199,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="front"
+                    <a @click="front = !front"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-regular fa-paste p-1"></i>
@@ -207,7 +207,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-front" class="hidden">
+                    <ul v-show="!front">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -303,7 +303,7 @@
                     </a>
                 </li>
                 <li class="w-full h-max pt-1">
-                    <a id="ecommerce"
+                    <a @click="ecommerce = !ecommerce"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-cart-arrow-down p-1"></i>
@@ -311,7 +311,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-ecommerce" class="hidden">
+                    <ul v-show="!ecommerce">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -323,7 +323,8 @@
                             <h3 class="ml-5">Dashboard</h3>
                         </li>
 
-                        <li id="product" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="product = !product"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -336,7 +337,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-product" class=" ml-3 hidden">
+                        <ul v-show="!product" class=" ml-3">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -370,7 +371,7 @@
                         </ul>
 
 
-                        <li id="order" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="order = !order" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -383,7 +384,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-order" class=" ml-3 hidden">
+                        <ul v-show="!order" class=" ml-3">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -406,7 +407,8 @@
                             </li>
                         </ul>
 
-                        <li id="customer" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="customer = !customer"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -419,7 +421,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-customer" class=" ml-3 hidden">
+                        <ul v-show="!customer" class=" ml-3">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -464,7 +466,8 @@
                             <h3 class="ml-5">Referrals</h3>
                         </li>
 
-                        <li id="setting" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="setting = !setting"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -477,7 +480,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-setting" class=" ml-3 hidden">
+                        <ul v-show="!setting" class=" ml-3">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -544,7 +547,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="academy"
+                    <a @click="academy = !academy"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -552,7 +555,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-academy" class="hidden">
+                    <ul v-show="!academy">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -587,7 +590,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="logistic"
+                    <a @click="logistic = !logistic"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-truck-fast p-1"></i>
@@ -595,7 +598,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-logistic" class="hidden">
+                    <ul v-show="!logistic">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -620,7 +623,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="invoice"
+                    <a @click="invoice = !invoice"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-regular fa-file-lines p-1 pl-2"></i>
@@ -631,7 +634,7 @@
                             <i class="fa-solid fa-chevron-right text-xs p-1 mx-2 "></i>
                         </div>
                     </a>
-                    <ul id="option-invoice" class="hidden">
+                    <ul v-show="!invoice">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -686,7 +689,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="user"
+                    <a @click="user = !user"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-user-group p-1"></i>
@@ -694,7 +697,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-user" class="hidden">
+                    <ul v-show="!user">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -706,7 +709,7 @@
                             <h3 class="ml-5">Dashboard</h3>
                         </li>
 
-                        <li id="list" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="list = !list" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -719,7 +722,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-list" class=" ml-3 hidden">
+                        <ul v-show="!list" class=" ml-3">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -775,7 +778,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="role"
+                    <a @click="role = !role"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-gear p-1"></i>
@@ -783,7 +786,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-role" class="hidden">
+                    <ul v-show="!role">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -808,16 +811,17 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="page"
+                    <a @click="page = !page"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
-                            <i class="fa-solid fa-cart-arrow-down p-1"></i>
+                            <i class="fa-regular fa-file p-1"></i>
                             <h1 class="ml-1">Pages</h1>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-page" class="hidden">
-                        <li id="userprofile" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                    <ul v-show="!page">
+                        <li @click="userprofile =!userprofile"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -830,7 +834,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-userprofile" class=" ml-3 hidden">
+                        <ul v-show="!userprofile" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -874,7 +878,8 @@
                         </ul>
 
 
-                        <li id="account" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="account =!account"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -887,7 +892,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-account" class=" ml-3 hidden">
+                        <ul v-show="!account" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -961,7 +966,7 @@
                             <h3 class="ml-5">Pricing</h3>
                         </li>
 
-                        <li id="misc" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="misc = !misc" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -975,7 +980,7 @@
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
 
-                        <ul id="option-misc" class=" ml-3 hidden">
+                        <ul v-show="!misc" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1023,16 +1028,16 @@
 
                 </li>
                 <li class="w-full h-max pt-1">
-                    <a id="auth"
+                    <a @click="auth = !auth"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
-                            <i class="fa-solid fa-cart-arrow-down p-1"></i>
+                            <i class="fa-solid fa-lock p-1"></i>
                             <h1 class="ml-1">Authentications</h1>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-auth" class="hidden">
-                        <li id="login" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                    <ul v-show="!auth">
+                        <li @click="login = !login" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1045,7 +1050,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-login" class=" ml-3 hidden">
+                        <ul v-show="!login" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1068,7 +1073,8 @@
                             </li>
                         </ul>
 
-                        <li id="register" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="register = !register"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1081,7 +1087,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-register" class=" ml-3 hidden">
+                        <ul v-show="!register" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1114,7 +1120,7 @@
                             </li>
                         </ul>
 
-                        <li id="email" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="email = !email" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1127,7 +1133,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-email" class=" ml-3 hidden">
+                        <ul v-show="!email" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1150,7 +1156,8 @@
                             </li>
                         </ul>
 
-                        <li id="password" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="password = !password"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1163,7 +1170,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-password" class=" ml-3 hidden">
+                        <ul v-show="!password" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1186,7 +1193,8 @@
                             </li>
                         </ul>
 
-                        <li id="forgot-password" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="forgotPassword = !forgotPassword"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1199,7 +1207,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-forgotPassword" class=" ml-3 hidden">
+                        <ul v-show="!forgotPassword" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1222,7 +1230,7 @@
                             </li>
                         </ul>
 
-                        <li id="steps" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="steps = !steps" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1235,7 +1243,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-steps" class=" ml-3 hidden">
+                        <ul v-show="!steps" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1265,15 +1273,15 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="wizard"
+                    <a @click="wizard =!wizard"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
-                            <i class="fa-solid fa-book-open p-1"></i>
+                            <i class="fa-brands fa-wizards-of-the-coast p-1"></i>
                             <h1 class="ml-1">Wizard Examples</h1>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-wizard" class="hidden">
+                    <ul v-show="!wizard">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1311,7 +1319,7 @@
                     <a
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
-                            <i class="fa-regular fa-envelope p-1"></i>
+                            <i class="fa-solid fa-medal p-1"></i>
                             <h1 class="ml-1">Modal Examples</h1>
                         </div>
                     </a>
@@ -1322,10 +1330,10 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="card"
+                    <a @click="card= !card"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
-                            <i class="fa-regular fa-file-lines p-1 pl-2"></i>
+                            <i class="fa-solid fa-credit-card p-1"></i>
                             <h1 class="ml-1">Cards</h1>
                         </div>
                         <div class="flex">
@@ -1333,7 +1341,7 @@
                             <i class="fa-solid fa-chevron-right text-xs p-1 mx-2 "></i>
                         </div>
                     </a>
-                    <ul id="option-card" class="hidden">
+                    <ul v-show="!card">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1398,7 +1406,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="userInterface"
+                    <a @click="userInterface =!userInterface"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -1406,7 +1414,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-userInterface" class="hidden">
+                    <ul v-show="!userInterface">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1611,7 +1619,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="extended"
+                    <a @click="extended =!extended"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -1619,7 +1627,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-extended" class="hidden">
+                    <ul v-show="!extended">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1710,7 +1718,8 @@
                             </p>
                             <h3 class="ml-5">Text Divider</h3>
                         </li>
-                        <li id="timeline" class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
+                        <li @click="timeline = !timeline"
+                            class="pt-4 flex justify-between cursor-pointer hover:text-red-300">
                             <div class="flex">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1723,7 +1732,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs p-1 mr-5"></i>
                         </li>
-                        <ul id="option-timeline" class=" ml-3 hidden">
+                        <ul v-show="!timeline" class=" ml-3 ">
                             <li class="pt-4 flex cursor-pointer hover:text-red-300">
                                 <p class="p-2 pl-5">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1779,7 +1788,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="icon"
+                    <a @click="icon = !icon"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -1787,7 +1796,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-icon" class="hidden">
+                    <ul v-show="!icon">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1816,7 +1825,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="form"
+                    <a @click="form = !form"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -1824,7 +1833,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-form" class="hidden">
+                    <ul v-show="!form">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1929,7 +1938,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="formLayout"
+                    <a @click="formLayout =!formLayout"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -1937,7 +1946,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-formLayout" class="hidden">
+                    <ul v-show="!formLayout">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -1972,7 +1981,7 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="formWizard"
+                    <a @click="formWizard = !formWizard"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -1980,7 +1989,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-formWizard" class="hidden">
+                    <ul v-show="!formWizard">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -2018,14 +2027,14 @@
                     <a
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex items-center">
-                            <i class="far fa-comments p-1"></i>
+                            <i class="fa-solid fa-table p-1"></i>
                             <h1 class="ml-1">Tables</h1>
                         </div>
                     </a>
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="dataTable"
+                    <a @click="dataTable =!dataTable"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
                             <i class="fa-solid fa-book-open p-1"></i>
@@ -2033,7 +2042,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-dataTable" class="hidden">
+                    <ul v-show="!dataTable">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -2072,15 +2081,15 @@
                 </li>
 
                 <li class="w-full h-max pt-1">
-                    <a id="chart"
+                    <a @click="chart =!chart"
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex">
-                            <i class="fa-solid fa-book-open p-1"></i>
+                            <i class="fa-solid fa-chart-pie p-1"></i>
                             <h1 class="ml-1">Charts</h1>
                         </div>
                         <i class="fa-solid fa-chevron-right text-xs p-1 mr-2"></i>
                     </a>
-                    <ul id="option-chart" class="hidden">
+                    <ul v-show="!chart">
                         <li class="pt-4 flex cursor-pointer hover:text-red-300">
                             <p class="p-2 pl-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
@@ -2108,7 +2117,7 @@
                     <a
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex items-center">
-                            <i class="far fa-comments p-1"></i>
+                            <i class="fa-regular fa-map p-1"></i>
                             <h1 class="ml-1">Leaflet Maps</h1>
                         </div>
                     </a>
@@ -2122,7 +2131,7 @@
                     <a
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex items-center">
-                            <i class="far fa-comments p-1"></i>
+                            <i class="fa-regular fa-life-ring p-1"></i>
                             <h1 class="ml-1">Support</h1>
                         </div>
                     </a>
@@ -2132,7 +2141,7 @@
                     <a
                         class="flex justify-between cursor-pointer focus:cursor-auto rounded-xl hover:bg-[#d3dfde] py-2 px-3 ">
                         <div class="flex items-center">
-                            <i class="far fa-comments p-1"></i>
+                            <i class="fa-solid fa-book p-1"></i>
                             <h1 class="ml-1">Documentation</h1>
                         </div>
                     </a>
@@ -4154,6 +4163,55 @@
                 </footer>
 
             </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    dashboard: true,
+                    layout: true,
+                    front: true,
+                    ecommerce: true,
+                    product: true,
+                    order: true,
+                    customer: true,
+                    setting: true,
+                    academy: true,
+                    logistic: true,
+                    invoice: true,
+                    user: true,
+                    list: true,
+                    role: true,
+                    page: true,
+                    userprofile: true,
+                    account: true,
+                    misc: true,
+                    auth: true,
+                    login: true,
+                    register: true,
+                    email: true,
+                    password: true,
+                    forgotPassword: true,
+                    steps: true,
+                    formWizard: true,
+                    wizard: true,
+                    card: true,
+                    userInterface: true,
+                    extended: true,
+                    timeline: true,
+                    icon: true,
+                    form: true,
+                    formLayout: true,
+                    dataTable: true,
+                    chart: true,
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 <script src="./app.js"></script>
 
